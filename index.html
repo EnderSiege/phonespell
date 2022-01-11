@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhoneSpell -- An NdrSiege Project</title>
+    <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-
+    <h2>Please enter a number combination (up to 9 characters):</h2>
+    <input type="text" id="user-input" maxlength="10" oninput="numberOnly(this.id);">
+    <div id="output"></div>
+    <div id="options"></div>
     <script type="text/javascript" src="./scripts/script.js"></script>
 </body>
 </html>

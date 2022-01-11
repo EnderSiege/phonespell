@@ -8,5 +8,40 @@ html, body {
 
 body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 16px;
+    padding: 25px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#user-input {
+    width: 100%;
+    max-width: 800px;
+    font-size: 32px;
+    padding: 10px 15px;
+    border-radius: 5px;;
+}
+
+#output {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
+.key {
+    border: 1px solid black;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.key p:first-child {
+    font-size: 2em;
+    margin-bottom: 10px;
 }
