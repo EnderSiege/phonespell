@@ -15,8 +15,11 @@
 
 const inputField = document.getElementById("user-input");
 const outputField = document.getElementById("output");
+const optionsField = document.getElementById("options");
+const messageField = document.getElementById("message");
 
 // Ensure only numerals are entered
+// src: https://stackoverflow.com/a/50419031/16762399
 function numberOnly(id) {
     // Get element by id which passed as parameter within HTML element event
     var element = document.getElementById(id);
@@ -28,27 +31,34 @@ function numberOnly(id) {
 inputField.addEventListener("keyup", function(event) {
     // On Enter
     if (event.key === `Enter`) {
-        console.log("Got Enter!")
-        clearOutputField();
-        getInput();
+        console.clear();
+        console.log("Got Enter!");
+        clearOutputFields();
+        messageField.innerHTML = "Generating...";
+        let input = getInput();
+        let arr = getCombinations(input);
+        printIterations(arr);
         clearInputField();
     }
-    
 })
 
 function clearInputField() {
     inputField.value = "";
 }
 
-function clearOutputField() {
+function clearOutputFields() {
     outputField.innerHTML = "";
+    optionsField.innerHTML = "";
 }
 
 function getInput() {
     console.log("Got Input!")
     const input = inputField.value;
     populateOutputField(input);
+    return input;
 }
+
+// Print the div#output section
 
 function populateOutputField(val) {
     for (let i = 0 ; i < val.length ; i++ ) {
@@ -185,3 +195,45 @@ function printDiv9() {
     `;
 }
 
+// Generate all iterations
+// src:  https://dev.to/seanpgallivan/solution-letter-combinations-of-a-phone-number-1n91#description
+
+const phoneKeys = {
+    '1':"1",
+    '2':"2abc",
+    '3':"3def",
+    '4':"4ghi",
+    '5':"5jkl",
+    '6':"6mno",
+    '7':"7pqrs",
+    '8':"8tuv",
+    '9':"9wxyz",
+    '0':"0"
+}
+
+function getCombinations(val) {
+    let len = val.length, ans = []
+    if (!len) return []
+    const bfs = (pos, str) => {
+        if (pos === len) ans.push(str)
+        else {
+            let letters = phoneKeys[val[pos]]
+            for (let i = 0; i < letters.length; i++)
+                bfs(pos+1,str+letters[i]);
+        }
+    }
+    bfs(0,"");
+    return ans;
+};
+
+function printIterations(arr) {
+    const array = arr;
+    let printP = "";
+    let count = 0;
+    for (let i = 0 ; i < array.length ; i++) {
+        printP += `<p>${array[i]}</p>`;
+        count++;
+    }
+    messageField.innerHTML = `There are ${count} iterations`;
+    optionsField.innerHTML = printP;
+}

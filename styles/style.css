@@ -10,6 +10,7 @@ body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 25px;
     text-align: center;
+    font-size: 20px;
 }
 
 h2 {
@@ -24,6 +25,10 @@ h2 {
     font-size: 32px;
     padding: 10px 15px;
     border-radius: 5px;;
+}
+
+#message {
+    margin: 15px 0;
 }
 
 #output {
@@ -44,4 +49,12 @@ h2 {
 .key p:first-child {
     font-size: 2em;
     margin-bottom: 10px;
+}
+
+#options p {
+    background-color: aliceblue;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
 }
