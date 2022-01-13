@@ -200,14 +200,14 @@ function printDiv9() {
 
 const phoneKeys = {
     '1':"1",
-    '2':"2abc",
-    '3':"3def",
-    '4':"4ghi",
-    '5':"5jkl",
-    '6':"6mno",
-    '7':"7pqrs",
-    '8':"8tuv",
-    '9':"9wxyz",
+    '2':"abc",
+    '3':"def",
+    '4':"ghi",
+    '5':"jkl",
+    '6':"mno",
+    '7':"pqrs",
+    '8':"tuv",
+    '9':"wxyz",
     '0':"0"
 }
 
